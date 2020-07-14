@@ -12,12 +12,13 @@ class Observer {
             this.defineReactive(data, key, data[key]);
             // 深度递归劫持
             this.observe(data[key]);
-        })
+        });
     }
 
     defineReactive (obj, key, value) {
         let _this = this;
-        let dep = new Dep()
+        let dep = new Dep();
+
         Object.defineProperty(obj, key, {
             enumerable: true,
             configurable: true,

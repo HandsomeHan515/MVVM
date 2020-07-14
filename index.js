@@ -6,7 +6,7 @@ class MVVM {
 
         if (this.$el) {
             new Observer(this.$data);
-            this.proxyData(this.$data);
+            this.proxyData(this.$data); // vm.$data.message.a => vm.message.a
             new Compile(this.$el, this);
         }
     }

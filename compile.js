@@ -16,7 +16,6 @@ class Compile {
     isElementNode (node) {
         return node.nodeType === 1
     }
-
     // 是不是指令
     isDirective (name) {
         return name.includes('v-');
@@ -27,12 +26,10 @@ class Compile {
         Array.from(childNodes).forEach(node => {
             if (this.isElementNode(node)) {
                 // 元素节点
-                // console.log('element', node)
                 this.compileElement(node);
                 this.compile(node);
             } else {
                 // 文本节点
-                // console.log('text', node)
                 this.compileText(node);
             }
         })
@@ -50,7 +47,6 @@ class Compile {
     compileElement (node) {
         // v-model
         let attrs = node.attributes;
-        // console.log('attrs', attrs)
         Array.from(attrs).forEach(attr => {
             let attrName = attr.name
             if (this.isDirective(attrName)) {
